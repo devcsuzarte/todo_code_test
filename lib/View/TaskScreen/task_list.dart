@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_code_test/Model/task_data.dart';
+import 'package:todo_code_test/View/TaskScreen/task_cell.dart';
 
 class TaskList extends StatelessWidget {
   const TaskList({super.key});
@@ -12,12 +13,7 @@ class TaskList extends StatelessWidget {
         return ListView.builder(
             itemBuilder: (context, index) {
               final task = taskData.taskList[index];
-              return Column(
-                children: [
-                  Text(task.title),
-                  Text(task.note),
-                ],
-              );
+              return TaskCell(task: task);
             },
             itemCount: Provider.of<TaskData>(context, listen: false).taskList.length,
         );
