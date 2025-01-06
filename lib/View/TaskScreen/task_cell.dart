@@ -32,7 +32,7 @@ class _TaskCellState extends State<TaskCell> {
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             color: CupertinoColors.systemGrey6),
           child: ListTile(
             title: Row(

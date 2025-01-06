@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_code_test/View/CreateTaskScreen.dart';
-import 'package:todo_code_test/View/DoneTasksScreen.dart';
+import 'package:todo_code_test/View/DoneTaskScreen/done_task_screen.dart';
 import 'package:todo_code_test/View/SearchScreen.dart';
 import 'package:todo_code_test/View/TaskScreen/TaskScreen.dart';
 import 'package:todo_code_test/constants.dart';

@@ -13,15 +13,13 @@ class SearchScreen extends StatelessWidget {
           TextField(
             decoration: kSearchInputDecoration,
           ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset('assets/create_task_background.png', height: 190,),
-                Text('No results found'),
-              ],
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/create_task_background.png', height: 190,),
+              Text('No results found'),
+            ],
           ),
         ],
       ),

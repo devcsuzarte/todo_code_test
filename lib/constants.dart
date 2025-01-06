@@ -20,6 +20,11 @@ const kUserNameTitle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kDeleteAllButtonText = TextStyle(
+  color: Colors.red,
+  fontSize: 16,
+);
+
 const kUserNameNavBar = TextStyle(
   fontSize: 17,
 );
