@@ -3,15 +3,18 @@ class TaskModel {
   TaskModel({
     required this.title,
     required this.note,
+    this.id,
+    this.isDone = 0,
 });
 
-  String title;
-  String note;
-  bool isDone = false;
+  int? id;
+  String? title;
+  String? note;
+  int? isDone;
   bool showNote = false;
 
   void toggleIsDone() {
-    isDone ? isDone = false : isDone = true;
+    isDone == 1 ? isDone = 0 : isDone == 1;
   }
 
   void toggleShowDescription() {

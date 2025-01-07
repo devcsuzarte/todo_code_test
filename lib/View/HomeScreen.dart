@@ -17,9 +17,18 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   void _onTabTapped(int index){
-    setState(() {
-      _selectedIndex = index;
-    });
+    if(index == 1) {
+      print('CREATE TASK');
+      showModalBottomSheet(
+          context: context,
+          builder: (context) => CreateTaskScreen(),
+          enableDrag: true,
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
   }
 
   final List<Widget> _screens = [

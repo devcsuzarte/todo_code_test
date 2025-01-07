@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:todo_code_test/Model/task_model.dart';
+import 'package:todo_code_test/database.dart';
 
 class TaskData extends ChangeNotifier {
   List<TaskModel> taskList = [
@@ -20,4 +21,14 @@ class TaskData extends ChangeNotifier {
       note: 'Um queijinho minas pra fazer uma pão de queijo'
     ),
   ];
+
+  void getTasks() async {
+    taskList = await TaskiDB().fetchAll;
+    notifyListeners();
+  }
+
+  void addTask(TaskModel task) {
+    TaskiDB().create(title: task.title!, note: task.note!, isDone: task.isDone!);
+    getTasks();
+  }
 }

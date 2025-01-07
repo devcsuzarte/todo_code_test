@@ -38,18 +38,18 @@ class _TaskCellState extends State<TaskCell> {
             title: Row(
               children: [
                 CupertinoCheckbox(
-                    value: widget.task.isDone,
+                    value: widget.task.isDone == 1 ? true : false,
                     onChanged: (value) {
                       setState(() {
                         widget.task.toggleIsDone();
                       });
                     }),
-                Text(widget.task.title, style: kTaskTitleStyle,),
+                Text(widget.task.title!, style: kTaskTitleStyle,),
               ],
             ),
             subtitle: widget.task.showNote ? Padding(
               padding: const EdgeInsets.only(left: 50.0),
-              child: Text(widget.task.note, style: kDescriptionStyle,),
+              child: Text(widget.task.note!, style: kDescriptionStyle,),
             ) : null,
             trailing: widget.task.showNote ? null : IconButton(
                 onPressed: () {

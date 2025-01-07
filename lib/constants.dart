@@ -29,6 +29,12 @@ const kUserNameNavBar = TextStyle(
   fontSize: 17,
 );
 
+const kCreateTaskTitle = TextStyle(
+  color: Colors.blueAccent,
+  fontSize: 15,
+  fontWeight: FontWeight.bold,
+);
+
 const kSearchInputDecoration = InputDecoration(
   filled: true,
   fillColor: Colors.white,
@@ -52,4 +58,13 @@ const kSearchInputDecoration = InputDecoration(
     BorderSide(color: Colors.blueAccent,width: 2.0),
     borderRadius: BorderRadius.all(Radius.circular(15.0)),
   ),
+);
+
+const kCreateTaskInputDecoration = InputDecoration(
+  floatingLabelBehavior: FloatingLabelBehavior.never,
+  hintStyle: TextStyle(
+    color: Colors.grey,
+  ),
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  border: InputBorder.none
 );
