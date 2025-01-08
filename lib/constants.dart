@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+const kSecondaryColor = Color(0xFF787878);
+
 const kTaskTitleStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
@@ -48,13 +50,14 @@ const kCreateTaskTitle = TextStyle(
 
 const kSearchInputDecoration = InputDecoration(
   filled: true,
-  fillColor: Color(00xF9F9FF),
+  fillColor: Color(0xFFF9F9FF),
   hintText: 'Pesquisar produto',
   floatingLabelBehavior: FloatingLabelBehavior.never,
   hintStyle: TextStyle(
     color: Colors.grey,
   ),
   prefixIcon: Icon(CupertinoIcons.search),
+  prefixIconColor: Colors.blueAccent,
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(15.0)),

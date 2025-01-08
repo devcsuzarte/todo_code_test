@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_code_test/Model/task_model.dart';
-import 'package:todo_code_test/ViewModel/task_data.dart';
+import 'package:todo_code_test/ViewModel/task_view_model.dart';
 import 'package:todo_code_test/constants.dart';
 import 'package:provider/provider.dart';
 

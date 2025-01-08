@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_code_test/View/TaskScreen/greetings_widget.dart';
 import 'package:todo_code_test/View/TaskScreen/task_list.dart';
-import 'package:todo_code_test/ViewModel/task_data.dart';
+import 'package:todo_code_test/ViewModel/task_view_model.dart';
 import 'package:todo_code_test/constants.dart';
 import 'package:provider/provider.dart';
 

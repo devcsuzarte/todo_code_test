@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_code_test/View/CreateTaskScreen.dart';
 import 'package:todo_code_test/View/DoneTaskScreen/done_task_screen.dart';
-import 'package:todo_code_test/View/SearchScreen.dart';
+import 'package:todo_code_test/View/search_screen/search_screen.dart';
 import 'package:todo_code_test/View/TaskScreen/task_screen.dart';
-import 'package:todo_code_test/ViewModel/task_data.dart';
+import 'package:todo_code_test/ViewModel/task_view_model.dart';
 import 'package:todo_code_test/constants.dart';
 import 'package:provider/provider.dart';
 

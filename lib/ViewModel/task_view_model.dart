@@ -5,9 +5,27 @@ import 'package:todo_code_test/database.dart';
 class TaskData extends ChangeNotifier {
   List<TaskModel> taskList = [];
   List<TaskModel> completedTasks = [];
+  List<TaskModel> tasksSearchList = [];
+
+  getTasksWithSearch(String searchText) {
+    tasksSearchList = [];
+
+    if(searchText.isNotEmpty) {
+      for(TaskModel task in taskList) {
+        if(task.title!.toUpperCase().contains(searchText.toUpperCase())) {
+          tasksSearchList.add(task);
+        }
+      }
+    } else {
+      tasksSearchList = [];
+    }
+
+    notifyListeners();
+  }
 
    getTasks() async {
     taskList = await TaskiDB().fetchTasks(0);
+    tasksSearchList = [];
     getCompletedTasks();
     notifyListeners();
   }
