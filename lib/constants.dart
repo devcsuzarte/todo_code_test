@@ -9,6 +9,11 @@ const kDescriptionStyle = TextStyle(
   color: Color(0xFF787878)
 );
 
+const kSubHeadingStyle = TextStyle(
+    color: Color(0xFF787878),
+    fontWeight: FontWeight.bold,
+);
+
 const kWelcomeTitle = TextStyle(
   fontSize: 17,
   fontWeight: FontWeight.bold
@@ -17,6 +22,12 @@ const kWelcomeTitle = TextStyle(
 const kUserNameTitle = TextStyle(
   color: Colors.blueAccent,
   fontSize: 17,
+  fontWeight: FontWeight.bold,
+);
+
+const kTextButtonLabel = TextStyle(
+  color: Colors.blueAccent,
+  fontSize: 15,
   fontWeight: FontWeight.bold,
 );
 
@@ -37,7 +48,7 @@ const kCreateTaskTitle = TextStyle(
 
 const kSearchInputDecoration = InputDecoration(
   filled: true,
-  fillColor: Colors.white,
+  fillColor: Color(00xF9F9FF),
   hintText: 'Pesquisar produto',
   floatingLabelBehavior: FloatingLabelBehavior.never,
   hintStyle: TextStyle(

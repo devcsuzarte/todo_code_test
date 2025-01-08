@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_code_test/constants.dart';
 
 import '../CreateTaskScreen.dart';
 
@@ -11,8 +12,14 @@ class TaskEmpty extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset('assets/create_task_background.png', height: 190,),
-        Text('You have no task listed'),
+        Image.asset('assets/clipboard_image.png', height: 190,),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 20.0),
+          child: Text(
+            'You have no task listed',
+            style: kSubHeadingStyle,
+          ),
+        ),
         TextButton.icon(
           style: TextButton.styleFrom(
             backgroundColor: Color(0xFFE5F2FF),
@@ -29,7 +36,10 @@ class TaskEmpty extends StatelessWidget {
             );
             },
           icon: Icon(CupertinoIcons.plus),
-          label: Text('Create Task'),
+          label: Text(
+            'Create Task',
+            style: kTextButtonLabel,
+          ),
         )
       ],
     );
