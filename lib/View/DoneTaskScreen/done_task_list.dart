@@ -12,10 +12,10 @@ class DoneTaskList extends StatelessWidget {
       builder: (context, taskData, child){
         return ListView.builder(
             itemBuilder: (context, index) {
-              final task = taskData.taskList[index];
-              return DoneCell(task: task,);
+              final task = taskData.completedTasks[index];
+              return DoneCell(task: task);
             },
-            itemCount: Provider.of<TaskData>(context, listen: false).taskList.length,
+            itemCount: Provider.of<TaskData>(context, listen: false).completedTasks.length,
         );
       },
     );

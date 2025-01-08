@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_code_test/Model/task_model.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_code_test/ViewModel/task_data.dart';
 
 class DoneCell extends StatelessWidget {
   const DoneCell({super.key, required this.task});
@@ -24,12 +26,13 @@ class DoneCell extends StatelessWidget {
                   Icon(CupertinoIcons.checkmark_square_fill),
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child: Text('Desing use case page'),
+                    child: Text(task.title!),
                   ),
                 ],
               ),
               IconButton(
                   onPressed: () {
+                    Provider.of<TaskData>(context, listen: false).deleteTask(task);
                   },
                   icon: Icon(
                     Icons.delete,

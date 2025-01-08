@@ -3,32 +3,33 @@ import 'package:todo_code_test/Model/task_model.dart';
 import 'package:todo_code_test/database.dart';
 
 class TaskData extends ChangeNotifier {
-  List<TaskModel> taskList = [
-    TaskModel(
-      title: 'Comprar queijo',
-      note: 'Um queijinho minas pra fazer uma pão de queijo gostosinho no azeite, isso é bom, isso é muito bão, não tem base não sorr'
-    ),
-    TaskModel(
-      title: 'Comprar queijo',
-      note: 'Um queijinho minas pra fazer uma pão de queijo'
-    ),
-    TaskModel(
-      title: 'Comprar queijo',
-      note: 'Um queijinho minas pra fazer uma pão de queijo'
-    ),
-    TaskModel(
-      title: 'Comprar queijo',
-      note: 'Um queijinho minas pra fazer uma pão de queijo'
-    ),
-  ];
+  List<TaskModel> taskList = [];
+  List<TaskModel> completedTasks = [];
 
-  void getTasks() async {
-    taskList = await TaskiDB().fetchAll;
+   getTasks() async {
+    taskList = await TaskiDB().fetchTasks(0);
+    getCompletedTasks();
+    notifyListeners();
+  }
+
+  getCompletedTasks() async {
+    completedTasks = await TaskiDB().fetchTasks(1);
     notifyListeners();
   }
 
   void addTask(TaskModel task) {
     TaskiDB().create(title: task.title!, note: task.note!, isDone: task.isDone!);
+    notifyListeners();
     getTasks();
+  }
+
+  void toggleTaskOnDataBase(TaskModel task) {
+     TaskiDB().update(task: task);
+     getTasks();
+  }
+
+  void deleteTask(TaskModel task) {
+     TaskiDB().delete(id: task.id!);
+     getTasks();
   }
 }

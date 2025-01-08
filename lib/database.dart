@@ -16,9 +16,13 @@ class TaskiDB {
     """);
   }
 
-  Future<List<TaskModel>> get fetchAll async {
+  Future<List<TaskModel>> fetchTasks(int isDone) async {
     final db = await DatabaseService().database;
-    final data = await db.query(tableName);
+    final data = await db.query(
+      tableName,
+      where: 'isDone = ?',
+      whereArgs: [isDone],
+    );
     List<TaskModel> tasks = data.map(
           (e) => TaskModel(
           id: e['id'] as int?,
@@ -37,6 +41,16 @@ class TaskiDB {
         '''INSERT INTO $tableName (title, note, isDone) VALUES (?,?,?)''',
         [title, note, isDone]
     );
+  }
+
+  Future<int> update({required TaskModel task}) async {
+    final db = await DatabaseService().database;
+    return await db.update(
+      tableName,
+      {'isDone': 1},
+      where: 'id = ?',
+      whereArgs: [task.id]
+        );
   }
 
   Future<int> delete({required int id}) async {

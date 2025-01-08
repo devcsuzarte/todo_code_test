@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:todo_code_test/View/CreateTaskScreen.dart';
 import 'package:todo_code_test/View/DoneTaskScreen/done_task_screen.dart';
 import 'package:todo_code_test/View/SearchScreen.dart';
-import 'package:todo_code_test/View/TaskScreen/TaskScreen.dart';
+import 'package:todo_code_test/View/TaskScreen/task_screen.dart';
+import 'package:todo_code_test/ViewModel/task_data.dart';
 import 'package:todo_code_test/constants.dart';
+import 'package:provider/provider.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,8 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    Provider.of<TaskData>(context, listen: false).getTasks();
+  }
   int _selectedIndex = 0;
-
   void _onTabTapped(int index){
     if(index == 1) {
       print('CREATE TASK');

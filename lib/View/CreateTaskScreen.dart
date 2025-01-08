@@ -71,6 +71,8 @@ class CreateTaskScreen extends StatelessWidget {
                               if (form.validate()) {
                                 var newTask = TaskModel(title: title, note: note);
                                 Provider.of<TaskData>(context, listen: false).addTask(newTask);
+                                form.reset();
+                                Navigator.pop(context);
                               }
                             },
                             child: Text(

@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_code_test/Model/task_model.dart';
 import 'package:todo_code_test/constants.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_code_test/ViewModel/task_data.dart';
 
 class TaskCell extends StatefulWidget {
 
@@ -42,6 +45,9 @@ class _TaskCellState extends State<TaskCell> {
                     onChanged: (value) {
                       setState(() {
                         widget.task.toggleIsDone();
+                        Timer(Duration(seconds: 1), () {
+                          Provider.of<TaskData>(context, listen: false).toggleTaskOnDataBase(widget.task);
+                        });
                       });
                     }),
                 Text(widget.task.title!, style: kTaskTitleStyle,),

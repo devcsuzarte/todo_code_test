@@ -14,7 +14,12 @@ class TaskModel {
   bool showNote = false;
 
   void toggleIsDone() {
-    isDone == 1 ? isDone = 0 : isDone == 1;
+    if(isDone == 1) {
+      isDone = 0;
+    } else {
+      isDone = 1;
+    }
+    print('$title : $isDone');
   }
 
   void toggleShowDescription() {
