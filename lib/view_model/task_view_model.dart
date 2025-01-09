@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:todo_code_test/Model/task_model.dart';
+import 'package:todo_code_test/model/task_model.dart';
 import 'package:todo_code_test/database.dart';
 
 class TaskData extends ChangeNotifier {
@@ -10,9 +10,9 @@ class TaskData extends ChangeNotifier {
   getTasksWithSearch(String searchText) {
     tasksSearchList = [];
 
-    if(searchText.isNotEmpty) {
-      for(TaskModel task in taskList) {
-        if(task.title!.toUpperCase().contains(searchText.toUpperCase())) {
+    if (searchText.isNotEmpty) {
+      for (TaskModel task in taskList) {
+        if (task.title!.toUpperCase().contains(searchText.toUpperCase())) {
           tasksSearchList.add(task);
         }
       }
@@ -23,7 +23,7 @@ class TaskData extends ChangeNotifier {
     notifyListeners();
   }
 
-   getTasks() async {
+  getTasks() async {
     taskList = await TaskiDB().fetchTasks(0);
     tasksSearchList = [];
     getCompletedTasks();
@@ -36,18 +36,24 @@ class TaskData extends ChangeNotifier {
   }
 
   void addTask(TaskModel task) {
-    TaskiDB().create(title: task.title!, note: task.note!, isDone: task.isDone!);
+    TaskiDB()
+        .create(title: task.title!, note: task.note!, isDone: task.isDone!);
     notifyListeners();
     getTasks();
   }
 
   void toggleTaskOnDataBase(TaskModel task) {
-     TaskiDB().update(task: task);
-     getTasks();
+    TaskiDB().update(task: task);
+    getTasks();
   }
 
   void deleteTask(TaskModel task) {
-     TaskiDB().delete(id: task.id!);
-     getTasks();
+    TaskiDB().delete(id: task.id!);
+    getTasks();
+  }
+
+  void deleteFinishedTasks() {
+    TaskiDB().deleteFinishedTasks();
+    getTasks();
   }
 }

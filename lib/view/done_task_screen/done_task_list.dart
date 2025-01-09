@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_code_test/View/DoneTaskScreen/done_cell.dart';
-import 'package:todo_code_test/ViewModel/task_view_model.dart';
+import '../../view_model/task_view_model.dart';
+import 'done_cell.dart';
 
 class DoneTaskList extends StatelessWidget {
   const DoneTaskList({super.key});

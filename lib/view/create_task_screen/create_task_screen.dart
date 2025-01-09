@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_code_test/Model/task_model.dart';
-import 'package:todo_code_test/ViewModel/task_view_model.dart';
+import 'package:todo_code_test/model/task_model.dart';
 import 'package:todo_code_test/constants.dart';
 import 'package:provider/provider.dart';
+import '../../view_model/task_view_model.dart';
 
 class CreateTaskScreen extends StatelessWidget {
   const CreateTaskScreen({super.key});

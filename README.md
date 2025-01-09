@@ -1,16 +1,67 @@
-# todo_code_test
+# Desafio de código Mobile Flutter
 
-A new Flutter project.
 
-## Getting Started
+## **1. Verificar Pré-requisitos**
+Antes de começar, certifique-se de ter o seguinte configurado:
 
-This project is a starting point for a Flutter application.
+1. **Dart e Flutter instalados**:
+    - Siga as instruções da [documentação oficial do Flutter](https://docs.flutter.dev/get-started/install) para instalar o SDK.
+    - Após a instalação, verifique se está tudo correto com o comando:
+      ```bash
+      flutter doctor
+      ```
 
-A few resources to get you started if this is your first Flutter project:
+2. **Editor de texto ou IDE**:
+    - É recomendado usar o **Visual Studio Code** (com a extensão Flutter/Dart instalada) ou o **Android Studio**.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. **Emulador ou dispositivo físico**:
+    - Configure um emulador Android ou iOS, ou conecte um dispositivo físico via USB com a depuração ativada.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## **2. Clonar o Repositório**
+Abra o terminal e clone o repositório:
+
+```bash
+git clone https://github.com/devcsuzarte/todo_code_test.git
+```
+
+Entre no diretório do projeto:
+
+```bash
+cd todo_code_test
+```
+
+---
+
+## **3. Instalar as Dependências**
+No diretório do projeto, execute:
+
+```bash
+flutter pub get
+```
+
+Isso instalará todas as dependências declaradas no arquivo `pubspec.yaml`.
+
+---
+
+## **4. Configurar Variáveis de Ambiente (se necessário)**
+
+Se o projeto utilizar variáveis de ambiente, procure por um arquivo chamado `.env.example` ou instruções na documentação do repositório. Configure o arquivo `.env` ou outro equivalente seguindo as instruções fornecidas no repositório.
+
+---
+
+## **5. Executar o Aplicativo**
+
+Agora, execute o aplicativo em um emulador ou dispositivo físico:
+
+1. **Conectar um dispositivo ou abrir um emulador**:
+    - No Android Studio, abra um emulador.
+    - Ou conecte um dispositivo físico e habilite a depuração USB.
+
+2. **Iniciar o aplicativo**:
+   No terminal, execute:
+
+   ```bash
+   flutter run
+   ```

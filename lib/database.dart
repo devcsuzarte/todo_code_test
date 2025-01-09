@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:todo_code_test/Model/task_model.dart';
+import 'model/task_model.dart';
 import 'package:path/path.dart';
 
 class TaskiDB {
@@ -23,34 +23,33 @@ class TaskiDB {
       where: 'isDone = ?',
       whereArgs: [isDone],
     );
-    List<TaskModel> tasks = data.map(
+    List<TaskModel> tasks = data
+        .map(
           (e) => TaskModel(
-          id: e['id'] as int?,
-          title:   e['title'] as String?,
-          note:   e['note'] as String?,
-          isDone:   e['isDone'] as int?
-      ),
-    ).toList();
+              id: e['id'] as int?,
+              title: e['title'] as String?,
+              note: e['note'] as String?,
+              isDone: e['isDone'] as int?),
+        )
+        .toList();
     print("from DB: ${data}");
     return tasks;
   }
 
-  Future<int> create({required String title, required String note, required int isDone}) async {
+  Future<int> create(
+      {required String title,
+      required String note,
+      required int isDone}) async {
     final db = await DatabaseService().database;
     return await db.rawInsert(
         '''INSERT INTO $tableName (title, note, isDone) VALUES (?,?,?)''',
-        [title, note, isDone]
-    );
+        [title, note, isDone]);
   }
 
   Future<int> update({required TaskModel task}) async {
     final db = await DatabaseService().database;
-    return await db.update(
-      tableName,
-      {'isDone': 1},
-      where: 'id = ?',
-      whereArgs: [task.id]
-        );
+    return await db.update(tableName, {'isDone': 1},
+        where: 'id = ?', whereArgs: [task.id]);
   }
 
   Future<int> delete({required int id}) async {
@@ -58,27 +57,25 @@ class TaskiDB {
     return await db.delete(
       tableName,
       where: 'id = ?',
-      whereArgs: [
-        id
-      ],
+      whereArgs: [id],
     );
   }
 
-  Future<int> deleteTable() async {
+  Future<int> deleteFinishedTasks() async {
     final db = await DatabaseService().database;
     return await db.delete(
-        tableName
+      tableName,
+      where: 'isDone = ?',
+      whereArgs: [1],
     );
   }
-
 }
 
 class DatabaseService {
-
   Database? _database;
 
   Future<Database> get database async {
-    if(_database != null) {
+    if (_database != null) {
       return _database!;
     }
 
@@ -104,5 +101,6 @@ class DatabaseService {
     return database;
   }
 
-  Future<void> create(Database database, int version) async => await TaskiDB().createTable(database);
+  Future<void> create(Database database, int version) async =>
+      await TaskiDB().createTable(database);
 }

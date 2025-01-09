@@ -51,7 +51,7 @@ const kCreateTaskTitle = TextStyle(
 const kSearchInputDecoration = InputDecoration(
   filled: true,
   fillColor: Color(0xFFF9F9FF),
-  hintText: 'Pesquisar produto',
+  hintText: 'Search for a task',
   floatingLabelBehavior: FloatingLabelBehavior.never,
   hintStyle: TextStyle(
     color: Colors.grey,

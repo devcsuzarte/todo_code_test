@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_code_test/View/TaskScreen/task_empty.dart';
-import 'package:todo_code_test/ViewModel/task_view_model.dart';
-import 'package:todo_code_test/View/TaskScreen/task_cell.dart';
+import '../../view_model/task_view_model.dart';
+import '../task_screen/task_cell.dart';
+import '../task_screen/task_empty.dart';
 
 class SearchList extends StatelessWidget {
   const SearchList({super.key});

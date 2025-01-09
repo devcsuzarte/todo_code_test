@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_code_test/constants.dart';
-import 'package:todo_code_test/ViewModel/task_view_model.dart';
+import '../../view_model/task_view_model.dart';
 
 class GreetingsWidget extends StatelessWidget {
   const GreetingsWidget({super.key});
+
+  String subGreetingMessage(int tasksCounter){
+    if (tasksCounter > 0) {
+      return 'You\'ve got $tasksCounter tasks to do';
+    } else {
+      return 'Create tasks to achieve more.';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +33,14 @@ class GreetingsWidget extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Text('You\'ve got ${
-                Provider
-                    .of<TaskData>(context, listen: false)
-                    .taskList
-                    .length
-            } tasks to do', style: kDescriptionStyle,),
+            Text(
+              subGreetingMessage(Provider.of<TaskData>(context, listen: false).taskList.length),
+              style: kDescriptionStyle,),
           ],
         );
       },
     );
   }
 }
+
+

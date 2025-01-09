@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_code_test/View/DoneTaskScreen/done_task_list.dart';
 import 'package:todo_code_test/constants.dart';
+import 'package:provider/provider.dart';
+import '../../view_model/task_view_model.dart';
+import 'done_task_list.dart';
 
 class DoneTasksScreen extends StatelessWidget {
   const DoneTasksScreen({super.key});
@@ -23,7 +25,7 @@ class DoneTasksScreen extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-
+                    Provider.of<TaskData>(context, listen: false).deleteFinishedTasks();
                   },
                   child: Text(
                     'Delete all',

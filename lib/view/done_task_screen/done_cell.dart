@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_code_test/Model/task_model.dart';
+import 'package:todo_code_test/model/task_model.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_code_test/ViewModel/task_view_model.dart';
+import '../../view_model/task_view_model.dart';
 
 class DoneCell extends StatelessWidget {
   const DoneCell({super.key, required this.task});
@@ -31,13 +31,14 @@ class DoneCell extends StatelessWidget {
                 ],
               ),
               IconButton(
-                  onPressed: () {
-                    Provider.of<TaskData>(context, listen: false).deleteTask(task);
-                  },
-                  icon: Icon(
-                    Icons.delete,
-                    color: Colors.red,
-                  ),
+                onPressed: () {
+                  Provider.of<TaskData>(context, listen: false)
+                      .deleteTask(task);
+                },
+                icon: Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
               ),
             ],
           ),

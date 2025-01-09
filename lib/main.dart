@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_code_test/ViewModel/task_view_model.dart';
-import 'package:todo_code_test/View/HomeScreen.dart';
+import 'view_model/task_view_model.dart';
+import 'view/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
